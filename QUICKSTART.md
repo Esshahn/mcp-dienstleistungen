@@ -1,58 +1,36 @@
 # Quick Start Guide
 
-## Testing Locally First (Recommended)
-
-Before publishing or using with Claude Desktop, test the server locally:
-
-### Option 1: Test with MCP Inspector
-
-The MCP Inspector lets you interact with the server and test all tools:
+## Installation (3 steps)
 
 ```bash
-npx @modelcontextprotocol/inspector node build/index.js
+# 1. Clone the repository
+git clone https://github.com/ingohinterding/berlin-services-mcp.git
+cd berlin-services-mcp
+
+# 2. Install dependencies
+npm install
+
+# 3. Build the project
+npm run build
 ```
 
-This will open a web interface where you can:
-- See all available tools
-- Test search_services, get_service_details, etc.
-- View responses in real-time
+## Configure Claude Desktop
 
-### Option 2: Configure Claude Desktop Locally
+### Step 1: Get the absolute path
 
-Use the local build instead of npx:
-
-**MacOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-**Windows**: `%APPDATA%/Claude/claude_desktop_config.json`
-
-```json
-{
-  "mcpServers": {
-    "berlin-services": {
-      "command": "node",
-      "args": [
-        "/ABSOLUTE/PATH/TO/mcp-dienstleistungen/build/index.js"
-      ]
-    }
-  }
-}
+In the berlin-services-mcp directory, run:
+```bash
+pwd
 ```
 
-Replace `/ABSOLUTE/PATH/TO/mcp-dienstleistungen` with your actual path (use `pwd` to get it).
+Copy the output (e.g., `/Users/yourname/berlin-services-mcp`)
 
----
-
-## Using with npx (After Publishing)
-
-Once published to npm, the setup becomes even simpler:
-
-### Configure Claude Desktop (2 steps)
-
-### Step 1: Find your config file
+### Step 2: Find your Claude config file
 
 - **MacOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
 - **Windows**: `%APPDATA%/Claude/claude_desktop_config.json`
 
-### Step 2: Add to Claude config
+### Step 3: Add to Claude config
 
 Edit the config file and add:
 
@@ -60,21 +38,34 @@ Edit the config file and add:
 {
   "mcpServers": {
     "berlin-services": {
-      "command": "npx",
+      "command": "node",
       "args": [
-        "-y",
-        "@ingohinterding/berlin-services-mcp"
+        "/PASTE/YOUR/PATH/HERE/berlin-services-mcp/build/index.js"
       ]
     }
   }
 }
 ```
 
-### Step 3: Restart Claude Desktop
+**Example** (replace with your actual path):
+```json
+{
+  "mcpServers": {
+    "berlin-services": {
+      "command": "node",
+      "args": [
+        "/Users/ingohinterding/github/berlin-services-mcp/build/index.js"
+      ]
+    }
+  }
+}
+```
 
-Completely quit and restart Claude Desktop.
+### Step 4: Restart Claude Desktop
 
-That's it! No paths, no installations, no setup.
+Completely quit and restart Claude Desktop (Cmd+Q on Mac).
+
+That's it!
 
 ## Try It Out!
 
@@ -100,22 +91,18 @@ Look at Claude Desktop's logs:
 
 ---
 
-## Development Installation (Optional)
+## Testing with MCP Inspector (Optional)
 
-Only needed if you want to modify the code:
-
-```bash
-git clone https://github.com/yourusername/berlin-services-mcp.git
-cd berlin-services-mcp
-npm install
-npm run build
-```
-
-## Testing with MCP Inspector
+To test the server interactively before using with Claude:
 
 ```bash
-npx @modelcontextprotocol/inspector npx -y @ingohinterding/berlin-services-mcp
+npx @modelcontextprotocol/inspector node build/index.js
 ```
+
+This opens a web interface where you can:
+- See all 4 available tools
+- Test them with different inputs
+- View responses in real-time
 
 ## Example Conversation
 
