@@ -19,8 +19,16 @@
     "germany",
     "model-context-protocol"
   ],
-  "author": "",
+  "author": "Ingo Hinterding",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ingohinterding/berlin-services-mcp.git"
+  },
+  "homepage": "https://github.com/ingohinterding/berlin-services-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/ingohinterding/berlin-services-mcp/issues"
+  },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4",
     "node-fetch": "^3.3.2"
