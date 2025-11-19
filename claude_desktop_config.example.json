@@ -1,9 +1,10 @@
 {
   "mcpServers": {
     "berlin-services": {
-      "command": "node",
+      "command": "npx",
       "args": [
-        "/ABSOLUTE/PATH/TO/berlin-services-mcp/build/index.js"
+        "-y",
+        "@ingohinterding/berlin-services-mcp"
       ]
     }
   }

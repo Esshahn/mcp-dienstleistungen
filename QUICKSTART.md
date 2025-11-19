@@ -1,6 +1,43 @@
 # Quick Start Guide
 
-## Installation (3 steps)
+## Super Easy Setup with npx (Recommended)
+
+No installation needed! Just configure and use.
+
+### Step 1: Find your Claude config file
+
+- **MacOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%/Claude/claude_desktop_config.json`
+
+### Step 2: Add to Claude config
+
+Edit the config file and add:
+
+```json
+{
+  "mcpServers": {
+    "berlin-services": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@ingohinterding/berlin-services-mcp"
+      ]
+    }
+  }
+}
+```
+
+### Step 3: Restart Claude Desktop
+
+Completely quit and restart Claude Desktop (Cmd+Q on Mac).
+
+That's it! No cloning, no building, no paths needed! 🎉
+
+---
+
+## Alternative: Local Development Setup
+
+If you want to modify the code:
 
 ```bash
 # 1. Clone the repository
@@ -12,27 +49,12 @@ npm install
 
 # 3. Build the project
 npm run build
-```
 
-## Configure Claude Desktop
-
-### Step 1: Get the absolute path
-
-In the berlin-services-mcp directory, run:
-```bash
+# 4. Get the absolute path
 pwd
+
+# 5. Use this config:
 ```
-
-Copy the output (e.g., `/Users/yourname/berlin-services-mcp`)
-
-### Step 2: Find your Claude config file
-
-- **MacOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-- **Windows**: `%APPDATA%/Claude/claude_desktop_config.json`
-
-### Step 3: Add to Claude config
-
-Edit the config file and add:
 
 ```json
 {
@@ -40,32 +62,12 @@ Edit the config file and add:
     "berlin-services": {
       "command": "node",
       "args": [
-        "/PASTE/YOUR/PATH/HERE/berlin-services-mcp/build/index.js"
+        "/YOUR/PATH/HERE/berlin-services-mcp/build/index.js"
       ]
     }
   }
 }
 ```
-
-**Example** (replace with your actual path):
-```json
-{
-  "mcpServers": {
-    "berlin-services": {
-      "command": "node",
-      "args": [
-        "/Users/ingohinterding/github/berlin-services-mcp/build/index.js"
-      ]
-    }
-  }
-}
-```
-
-### Step 4: Restart Claude Desktop
-
-Completely quit and restart Claude Desktop (Cmd+Q on Mac).
-
-That's it!
 
 ## Try It Out!
 

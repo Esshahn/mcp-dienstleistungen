@@ -18,7 +18,11 @@ A Model Context Protocol (MCP) server that provides access to Berlin's administr
 
 ## Installation
 
-### Clone and Setup (3 steps)
+### Option 1: Using npx (Recommended - No Installation!)
+
+No installation needed! Just use it directly via npx.
+
+### Option 2: Clone and Build (For Development)
 
 ```bash
 # 1. Clone the repository
@@ -32,8 +36,6 @@ npm install
 npm run build
 ```
 
-That's it! The server is now ready to use.
-
 ## Usage
 
 ### With Claude Desktop
@@ -43,6 +45,22 @@ Add this configuration to your Claude Desktop config file:
 **MacOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
 **Windows**: `%APPDATA%/Claude/claude_desktop_config.json`
 
+**Option 1: Using npx (Easiest)**
+```json
+{
+  "mcpServers": {
+    "berlin-services": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@ingohinterding/berlin-services-mcp"
+      ]
+    }
+  }
+}
+```
+
+**Option 2: Using local build**
 ```json
 {
   "mcpServers": {
@@ -55,31 +73,20 @@ Add this configuration to your Claude Desktop config file:
   }
 }
 ```
-
-**Important**: Replace `/ABSOLUTE/PATH/TO/berlin-services-mcp` with the actual path where you cloned the repo.
-
-To get the path, run `pwd` in the berlin-services-mcp directory.
-
-**Example**:
-```json
-{
-  "mcpServers": {
-    "berlin-services": {
-      "command": "node",
-      "args": [
-        "/Users/yourname/projects/berlin-services-mcp/build/index.js"
-      ]
-    }
-  }
-}
-```
+(Replace `/ABSOLUTE/PATH/TO/berlin-services-mcp` with your actual path)
 
 After adding this, restart Claude Desktop completely (Cmd+Q on Mac, then reopen).
 
 ### With MCP Inspector
 
-For testing and development:
+For testing:
 
+**With npx:**
+```bash
+npx @modelcontextprotocol/inspector npx -y @ingohinterding/berlin-services-mcp
+```
+
+**With local build:**
 ```bash
 npx @modelcontextprotocol/inspector node build/index.js
 ```
