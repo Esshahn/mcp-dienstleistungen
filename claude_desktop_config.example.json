@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "berlin-services": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@ingohinterding/berlin-services-mcp"
+      ]
+    }
+  }
+}

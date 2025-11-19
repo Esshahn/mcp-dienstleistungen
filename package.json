@@ -1,0 +1,38 @@
+{
+  "name": "@ingohinterding/berlin-services-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for Berlin administrative services (Dienstleistungen)",
+  "type": "module",
+  "bin": {
+    "berlin-services-mcp": "./build/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "watch": "tsc --watch"
+  },
+  "keywords": [
+    "mcp",
+    "berlin",
+    "services",
+    "dienstleistungen",
+    "germany",
+    "model-context-protocol"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2"
+  },
+  "files": [
+    "build"
+  ],
+  "engines": {
+    "node": ">=18"
+  }
+}
