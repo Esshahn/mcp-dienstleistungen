@@ -1,6 +1,6 @@
 {
   "name": "@ingohinterding/berlin-services-mcp",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "MCP server for Berlin administrative services (Dienstleistungen)",
   "type": "module",
   "bin": {
